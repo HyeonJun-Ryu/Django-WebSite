@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--www.codingflicks.com--> 
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+    {% load static %}
+	<link href="{% static '/accounts/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% block content %}
+	<div class="form-box">
+		<div class="header-text">
+			Login
+		</div>
+        <div class="container">
+
+            <form method="POST" action="{%url 'login'%}">
+                {% csrf_token %}
+                <input name="username" placeholder="Email address" type="text"> 
+                <input name="password" placeholder="Password" type="password">
+
+                <button>Login</button>
+            </form>
+
+        </div>
+
+        
+        
+	</div>
+</body>
+</html>
+{% endblock %} 

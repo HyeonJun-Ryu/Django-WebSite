@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Posting!</title>
+    </head>
+    <body>
+        <p>게시글 개별 페이지입니다</p>
+        <h2>제목: {{post.postname}}</h2>
+        <p>내용: {{post.contents}}</p>
+        {% if post.images %}
+            <img src = "{{ post.images.url }}" alt="" height="600">
+            <br>
+        {% endif %}
+        <a href="/posts/">목록</a>
+    </body>
+</html>

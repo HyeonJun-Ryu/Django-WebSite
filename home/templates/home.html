@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="ko"> 
+<head> 
+    <meta charset="utf-8" />    
+    <title>이미지 테스트</title>
+</head> 
+<body> 
+    <!-- 로컬에서 이미지 불러오기 --> 
+    <h3>Local 환경에서의 이미지</h3> 
+    <p><img src = "{% static 'home/car.jpg'%}" alt="어코드하이브리드" width="500"/></p> 
+
+    <!-- 인터넷에서 이미지 불러오기 --> 
+    <h3>인터넷 환경에서의 이미지</h3>
+    <p><img src="http://rgo4.com/files/attach/images/2676751/909/558/019/093271cf31ad9cabdf4216e7bbcc7b7b.jpg" alt="조보아 사진"/>
+    
+    </p> <!-- 크기 조절하기 --> 
+    <h3>크기 조절</h3> 
+    <p> 
+        <img src="http://image.chosun.com/sitedata/image/201808/10/2018081001569_0.jpg" alt="조보아 사진" /> 
+    </p> 
+    <p> 
+        <img src="http://image.chosun.com/sitedata/image/201808/10/2018081001569_0.jpg" alt="조보아 사진" width="300" /> 
+    </p> 
+
+    <input type="button" value="로그인하기"
+    onclick="location.href='accounts'">
+
+</body> 
+</html>
+

@@ -1,0 +1,7 @@
+{% load static %}
+
+<h1>home 파일 완성!</h1>
+
+<h2> 안녕 </h2>
+
+<img src = "{% static 'home/car.jpg'%}" alt="어코드하이브리드"/>

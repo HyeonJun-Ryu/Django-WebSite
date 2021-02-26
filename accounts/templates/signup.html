@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--www.codingflicks.com--> 
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign Up</title>
+    {% load static %}
+	<link href="{% static '/accounts/main.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% block content %}
+	<div class="form-box">
+		<div class="header-text">
+			Sign up
+		</div>
+        <div class="container">     
+            
+            <form method="POST" action="{%url 'signup'%}">
+                {% csrf_token %}
+                <input name="username" placeholder="Email address" type="text"> 
+                <input name="password1" placeholder="Password" type="password">
+                <input name="password2" placeholder="Confirm Password" type="password">  
+                <input id="terms" type="checkbox"><label for="terms"></label><span>Agree with <a href="#">Terms & Conditions</a></span> 
+                
+                <button>Submit</button>
+            </form>
+
+        </div>
+
+        
+        
+	</div>
+</body>
+</html>
+{% endblock %} 
