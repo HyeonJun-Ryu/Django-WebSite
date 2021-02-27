@@ -6,3 +6,4 @@ def index(request):
 
 def noacc(request):
     return render(request, 'noacc.html')
+

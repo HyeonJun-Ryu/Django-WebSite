@@ -8,33 +8,41 @@ from django.urls import reverse
 def accounts(request):
     return render(request, 'accounts.html')
 
+def terms(request):
+    return render(request, 'terms.html')    
+
+
 def signup(request):
+    
     if request.method == "POST":
-        if request.POST["password1"] == request.POST["password2"]:
+        if request.POST.get("password1") == request.POST.get("password2"):
+
             user = User.objects.create_user(
-                username=request.POST["username"],password=request.POST["password1"])
+                username=request.POST.get("username"), password=request.POST.get("password1"))
             auth.login(request, user)
-            return redirect('index')
-        return render(request, 'signup.html')
+            return redirect('/index')
+        else:   
+            return render(request, 'signup.html')
+
     return render(request, 'signup.html')
 
 def login(request):
-
+    response_data = {}
     if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-
-            return redirect('index')
+            return redirect('/index')
         else:
-            return render(request, 'login.html', {'error': 'username or password is incorrect'})
+            return render(request, 'login.html')
+            
     else:
         return render(request, 'login.html')
     
 
 def logout(request):
     auth.logout(request)
-    return redirect('home')
+    return redirect('index')
 

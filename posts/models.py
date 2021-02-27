@@ -1,10 +1,11 @@
 from django.db import models
 
+
+
 # Create your models here.
 class Post(models.Model):
-    postname = models.CharField(max_length=50)
-    images = models.ImageField(blank=True, upload_to="images", null=True)
-    contents = models.TextField()
-
-    def __str__(self):
-        return self.postname
+    author = models.CharField(max_length=10, null=False)
+    title = models.CharField(max_length=100, null=False)
+    content = models.TextField(null=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now=True)

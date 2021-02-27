@@ -5,9 +5,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.posts, name= 'posts'),
-    path('<int:pk>/', views.posting, name= 'posting'),
-    path('newpost/', views.newpost, name= 'newpost'),
+    path('', views.list, name= 'list'),
+    path('posting/', views.posting, name= 'posting'),
     ] 
 
 if settings.DEBUG:

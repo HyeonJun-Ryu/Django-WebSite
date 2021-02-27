@@ -7,6 +7,7 @@
 -->
 <html>
 	<head>
+		
 		<title>My house</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -22,11 +23,20 @@
 			</header>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="post" action="#">
-				<input type="email" name="email" id="email" placeholder="Email Address" />
-				<input type="submit" value="Sign Up" />
+			
+		{% if user.is_authenticated %}
+      		<form id="Button" method="get" action="/accounts/logout">
+				<input type="submit" value="Log Out"/>
+			</form>
+   		{% else %}
+			<form id="Button" method="get" action="/accounts/signup/">
+				<input type="submit" value="Sign Up"/>
+			</form>
+			<form id="Button" method="get" action="/accounts/login/">
 				<input type="submit" value="Log in" />
 			</form>
+      	{% endif %}
+		<p> {% if user.is_authenticated %} <p>Welcome, {{ user.username }}. Thanks for logging in.</p> {% else %} <p>Welcome, new user. Please log in.</p> {% endif %} </p>	
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -35,7 +45,7 @@
 					<li><a href="oops" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 					<li><a href="oops" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="https://steamcommunity.com/id/hjryu1816/" class="icon brands fa-steam"><span class="label">Steam</span></a></li>
-					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					<li><a href="/posts" class="icon fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
 					<li>&copy; 2021. HYEONJUN RYU. All rights reserved.</li><li>Credits: HYEONJUN RYU</li>

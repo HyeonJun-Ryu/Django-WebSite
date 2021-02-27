@@ -17,10 +17,10 @@
             
             <form method="POST" action="{%url 'signup'%}">
                 {% csrf_token %}
-                <input name="username" placeholder="Email address" type="text"> 
+                <input name="username" placeholder="Username" type="text"> 
                 <input name="password1" placeholder="Password" type="password">
                 <input name="password2" placeholder="Confirm Password" type="password">  
-                <input id="terms" type="checkbox"><label for="terms"></label><span>Agree with <a href="#">Terms & Conditions</a></span> 
+                <input id="terms" type="checkbox"><label for="terms"></label><span>Agree with <a href="/accounts/terms/">Terms & Conditions</a></span> 
                 
                 <button>Submit</button>
             </form>
